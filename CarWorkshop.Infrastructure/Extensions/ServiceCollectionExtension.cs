@@ -1,4 +1,6 @@
-﻿using CarWorkshop.Infrastructure.Persistence;
+﻿using CarWorkshop.Domain.Interfaces;
+using CarWorkshop.Infrastructure.Persistence;
+using CarWorkshop.Infrastructure.Repository;
 using CarWorkshop.Infrastructure.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +16,7 @@ public static class ServiceCollectionExtension
         services.AddDbContext<CarWorkshopDbContext>(options => options.UseNpgsql(connectionString));
         
         services.AddScoped<CarWorkshopSeeder>();
-
+        services.AddScoped<ICarWorkshopRepository, CarWorkshopRepository>();
     }
     
 }

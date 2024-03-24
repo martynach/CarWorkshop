@@ -1,6 +1,6 @@
+using CarWorkshop.Application.Extensions;
 using CarWorkshop.Infrastructure.Extensions;
 using CarWorkshop.Infrastructure.Seeders;
-using CarWorkshop.MVC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 // powyzsza logika przeniesiona do projektu infrastructure jako extension method dla IServiceCollection
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplicationConfig();
 
 var app = builder.Build();
 

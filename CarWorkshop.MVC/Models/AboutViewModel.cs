@@ -1,9 +1,9 @@
-namespace CarWorkshop.Models;
+namespace CarWorkshop.MVC.Models;
 
 public class AboutViewModel
 {
-    public string Title{ get; set; }
-    public string Description { get; set; }
-    public string[] Tags { get; set; }
-    
+    public required string Title { get; set; }
+    public required string Description { get; set; }
+    public string[] Tags { get; set; } = Array.Empty<string>();
+
 }

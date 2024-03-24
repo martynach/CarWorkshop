@@ -1,13 +1,10 @@
-﻿@model AboutViewModel;
-
-@{
-    ViewData["Title"] = "About";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@model CarWorkshop.MVC.Models.AboutViewModel;
 
 
-<p>Title: @Model.Title</p>
-<p>Description: @Model.Description</p>
+
+
+<h1>@Model.Title</h1>
+<div class="alert alert-primary" role="alert">Description: @Model.Description</div>
 <p>tags: </p>
 @foreach (var tag in Model.Tags)
 {
