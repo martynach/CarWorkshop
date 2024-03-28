@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarWorkshop.MVC.Controllers;
-//
-// [ApiController]
-// [Route("api/carworkshop")]
+
 public class CarWorkshopController: Controller
 {
     private readonly ICarWorkshopService _carWorkshopService;
@@ -18,9 +16,12 @@ public class CarWorkshopController: Controller
     {
         return View();
     }
+    
 
+
+    // [HttpPost("Create")]
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Domain.Entities.CarWorkshop carWorkshop)
+    public async Task<IActionResult> Create( [FromForm] Domain.Entities.CarWorkshop carWorkshop)
     {
         await _carWorkshopService.Create(carWorkshop);
         return RedirectToAction(nameof(Create)); // todo
