@@ -1,4 +1,5 @@
-﻿using CarWorkshop.Application.Services;
+﻿using CarWorkshop.Application.Dtos;
+using CarWorkshop.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarWorkshop.MVC.Controllers;
@@ -21,9 +22,9 @@ public class CarWorkshopController: Controller
 
     // [HttpPost("Create")]
     [HttpPost]
-    public async Task<IActionResult> Create( [FromForm] Domain.Entities.CarWorkshop carWorkshop)
+    public async Task<IActionResult> Create( [FromForm] CarWorkshopDto carWorkshopDto)
     {
-        await _carWorkshopService.Create(carWorkshop);
+        await _carWorkshopService.Create(carWorkshopDto);
         return RedirectToAction(nameof(Create)); // todo
 
     }
