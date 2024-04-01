@@ -1,5 +1,6 @@
 ﻿using CarWorkshop.Domain.Interfaces;
 using CarWorkshop.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarWorkshop.Infrastructure.Repository;
 
@@ -16,4 +17,10 @@ public class CarWorkshopRepository: ICarWorkshopRepository
         await _dbContext.CarWorkshop.AddAsync(carWorkshop);
         await _dbContext.SaveChangesAsync();
     }
+
+    public Task<Domain.Entities.CarWorkshop?> FindByName(string name)
+    {
+        return _dbContext.CarWorkshop.FirstOrDefaultAsync(cw => cw.Name.ToLower() == name.ToLower());
+    }
+
 }
