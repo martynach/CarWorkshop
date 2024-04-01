@@ -23,7 +23,7 @@ public class CarWorkshop
     //     chcemy aby ASO%20Mazda bylo wyswietlone w przegladarce jako aso-mazda
     public string EncodedName { get; private set; }
 
-    private void EncodeName() => EncodedName = Name.ToLower().Replace(" ", "-");
+    private void EncodeName() => EncodedName = Name?.ToLower().Replace(" ", "-") ?? "";
 
     public string? About { get; set; }
 
